@@ -10,17 +10,19 @@
 <body>
     <div id="app">{{ text }}</div>
     <script>
-        const vue_app = Vue.createApp({
+        const vm = Vue.createApp({
 
             data() {
 
                 return {
-                    text: "VUE JS"
-                }
+                    text: "<p>TEXT INSIDE HTML TAGS BUT TREATING THE TAGS AS PLAIN TEXT</P>",
+                    text_html:"<p>TEXT INSIDE HTML TAGS WITH V-HTML DIRECTIVE</p>"
+                };
 
-            }
+            },
+            template: `<div v-once v-text="text"></div><div v-html="text_html"></div>`
 
-        }).mount("#app")
+        }).mount("#app");
     </script>
 </body>
 </html>
